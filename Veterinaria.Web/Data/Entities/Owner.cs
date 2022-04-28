@@ -39,7 +39,14 @@ namespace Veterinaria.Web.Data.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Email { get; set; }
 
-        [Display(Name = "Dueño")]
+        [Display(Name = "Nombre y Apellidos")]
         public string FullName => $"{FirstName} {LastName}";
+
+        [Display(Name = "Mascota")]
+        public Pet Pet { get; set; }
+
+        [Display(Name = "Mascota")]
+        public string PetName => Pet == null ? "" : $"{Pet.Name}";
+
     }
 }

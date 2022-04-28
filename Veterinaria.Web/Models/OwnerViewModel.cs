@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Veterinaria.Web.Data.Entities;
 
 namespace Veterinaria.Web.Models
 {
@@ -38,5 +39,11 @@ namespace Veterinaria.Web.Models
         [MaxLength(50, ErrorMessage = "El campo {0} no puede tener más de {1} carácteres.")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Email { get; set; }
+
+        [Display(Name = "Mascota")]
+        public Pet Pet { get; set; }
+
+        [Display(Name = "Mascota")]
+        public string PetName => Pet == null ? "" : $"{Pet.Name}";
     }
 }
